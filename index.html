@@ -2,9 +2,8 @@
 <html lang="en-us">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=100rem,user-scalable=yes">
+	<meta name="viewport" content="width=device-width,user-scalable=yes">
 	<title>Tinkering with CSS Filters</title>
-	<link rel="stylesheet" href="droid-sans/stylesheet.css">
 	<link rel="stylesheet" href="s.css">
 </head>
 <body>
@@ -17,61 +16,82 @@
 	</p>
     </div>
     <form>
+       <h2>Filter options</h2>
        <p class="prop">
             <label for="grayscale">grayscale</label>
             <input type="range" name="grayscale" value="0" id="grayscale" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a number or percentage.</span>
+		</p>
 
         <p class="prop">
             <label for="sepia">sepia</label>
             <input type="range" name="sepia" value="0" id="sepia" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a number or percentage.</span>
+		</p>
 
         <p class="prop">
             <label for="saturate">saturate</label>
             <input type="range" name="saturate" value="0" id="saturate" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a number or percentage.</span>
+		</p>
 
         <p class="prop">
             <label for="hue-rotate">hue-rotate</label>
-            <input type="range" name="hue-rotate" value="0" id="hue-rotate" min="0" max="1" step=".1">
-        </p>
+            <input type="range" name="hue-rotate" value="0" id="hue-rotate" min="0" max="360" step=".1">
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be an angle, in degrees (deg) or radians (rad)</span>
+		</p>
 
         <p class="prop">
             <label for="invert">invert</label>
             <input type="range" name="invert" value="0" id="invert" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
 
         <p class="prop">
             <label for="opacity">opacity</label>
             <input type="range" name="opacity" value="0" id="opacity" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
 
         <p class="prop">
             <label for="brightness">brightness</label>
             <input type="range" name="brightness" value="0" id="brightness" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
 
         <p class="prop">
             <label for="contrast">contrast</label>
             <input type="range" name="contrast" value="0" id="contrast" min="0" max="1" step=".1">
-        </p>
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
 
         <p class="prop">
             <label for="blur">blur</label>
-            <input type="range" name="blur" value="0" id="blur" min="0" max="1" step=".1">
-        </p>
+            <input type="range" name="blur" value="0" id="blur" min="0" max="100" step="1">
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
 
         <p class="prop">
             <label for="drop-shadow">drop-shadow</label>
             <input type="range" name="drop-shadow" value="0" id="drop-shadow" min="0" max="1" step=".1">
-        </p>
-        <p class="prop">
+        	<b class="value">0</b>
+        	<span class="about hide">Value must be a length.</span>
+		</p>
+        <p>
             <button type="button" id="button">Get CSS</button>
             <button type="reset" id="reset">Reset</button>
-        </p>
+		</p>
     </form>
 
-<script type="text/javascript"></script>
+<script type="text/javascript" src="filters.js"></script>
 </body>
 </html>
