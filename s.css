@@ -38,32 +38,65 @@ p{
 img{display:block; margin:0 0 1rem;}
 
 form{
-    position:fixed;
+    position:absolute;
     right:0;
     margin: 3rem;
     width:30rem;
     z-index:9997;
 }
 .prop{
+    line-height: 1;
     margin:.5rem 0;
     background:rgba(240,240,240,.3);
     border:1px solid #eee;
-    padding:.5rem 0 .5rem 1rem;
+    padding:.5rem 0 .6rem 1rem;
     width:100%;
-    -webkit-transition: min-height 1s linear, max-height 1s linear;
     min-height:1rem;
     max-height:1rem;
     height:auto;
+    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
+       -moz-transition: min-height 500ms linear, max-height 500ms linear;
+         -o-transition: min-height 500ms linear, max-height 500ms linear;
+        -ms-transition: min-height 500ms linear, max-height 500ms linear;
+            transition: min-height 500ms linear, max-height 500ms linear;
 }
+
 .prop:hover{
     background:rgba(255,255,204,.5);
     border-color:rgba(255,204,0,.2);
-   -webkit-transition: min-height 1s linear,  max-height 1s linear;
     min-height:3rem;
     max-height:3rem;
     height:auto;
     overflow:hidden;
+    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
+       -moz-transition: min-height 500ms linear, max-height 500ms linear;
+         -o-transition: min-height 500ms linear, max-height 500ms linear;
+        -ms-transition: min-height 500ms linear, max-height 500ms linear;
+            transition: min-height 500ms linear, max-height 500ms linear;
 }
+#drops{
+    min-height:4rem;
+    max-height:4rem;
+    background:rgba(240,240,240,.3);
+    border:1px solid #eee;
+    padding:.5rem 0;
+    overflow:hidden;
+    width:31rem;
+}
+#drops div{
+    font-size:.9rem;
+    margin:1rem 0;
+}
+#drops:hover{
+    min-height:6rem;
+    max-height:6rem;
+    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
+       -moz-transition: min-height 500ms linear, max-height 500ms linear;
+         -o-transition: min-height 500ms linear, max-height 500ms linear;
+        -ms-transition: min-height 500ms linear, max-height 500ms linear;
+            transition: min-height 500ms linear, max-height 500ms linear;
+}
+#drops p{margin:0;font-size:1rem}
 
 .prop .about{
     display:none;
@@ -75,11 +108,15 @@ form{
     display:block;
 }
 
-label{
+label,legend{
     font-family:monospace;
     width:10rem;
+    font-size:1.2rem;
 }
-label,input[type=range]{
+fieldset{
+    border:0;
+}
+.lbl-range,input[type=range]{
     display:inline-block;
     vertical-align:middle
 }
@@ -87,6 +124,14 @@ input[type=range]{
     width:12rem;
     vertical-align:bottom;
 }
+input[type=number],input[type=color]{
+    font-family:inherit;
+    font-size:1.2rem;
+    width:4rem;
+    text-align:right;
+    margin-left:.4rem;
+}
+
 .value{
     display:inline-block;
     text-align:right;
