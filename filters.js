@@ -59,7 +59,7 @@ update = function(e){
             val.replaceChild(document.createTextNode(e.target.value),val.firstChild);
             break;
          case 'saturate':
-            newfilt = f.replace(/saturate\([0-9]+/,'saturate('+e.target.value );
+            newfilt = f.replace(/saturate\([\.0-9]+/,'saturate('+(e.target.value*1) );
             val.replaceChild(document.createTextNode(e.target.value),val.firstChild);
             break;
          case 'drop-shadow-x':
