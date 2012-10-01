@@ -130,7 +130,7 @@ input[type=number],input[type=color]{
     text-align:right;
     margin-left:.4rem;
 }
-input[type=number]:focus{
+input:focus{
     background: #cf0;
     outline:none;
 }
