@@ -9,7 +9,7 @@
 <body>
 
     <h1>Tinkering with CSS Filters</h1>
-	<div id="filtered">
+	<div id="filtered" style="-webkit-filter:blur(0px) brightness(0) contrast(100%) drop-shadow(0px 0px 0px #000) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0)">
 	<p>
 	<img src="saba.jpg" alt="A view of Saba, Netherlands Antilles from Sint Maarten" id="image">
     A view of Saba, an island in the Netherlands Antilles from the Wyndham Sapphire Beach Club on Cupecoy Beach in Sint Maarten.
@@ -20,7 +20,7 @@
        <p class="prop slide">
             <label for="blur" class="lbl-range">blur</label>
             <input type="range" name="blur" value="0" id="blur" min="0" max="100" step="1">
-        	<b class="value">0</b>
+        	<b class="value">0</b>px
         	<span class="about">Value must be a length such as px, em, or rem.</span>
 		</p>
 
@@ -33,9 +33,9 @@
 
         <p class="prop slide">
             <label for="contrast" class="lbl-range">contrast</label>
-            <input type="range" name="contrast" value="1" id="contrast" min="0" max="1" step=".01">
-        	<b class="value">1</b>
-        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+            <input type="range" name="contrast" value="100" id="contrast" min="0" max="10000" step="100">
+        	<b class="value">100</b>%
+        	<span class="about">Value must be a number or a percentage.</span>
 		</p>
 
 
@@ -44,7 +44,7 @@
            <legend>drop-shadow</legend>
             <p><input type="number" name="drop-shadow-x" value="0" id="drop-shadow-x" min="0" size="4">px
             <input type="number" name="drop-shadow-y" value="0" id="drop-shadow-y" min="0" size="4">px
-            <input type="number" name="drop-shadow-offset" value="0" id="drop-shadow-offset" min="0" size="4">px
+            <input type="number" name="drop-shadow-blur" value="0" id="drop-shadow-blur" min="0" size="4">px
             <input type="color" name="drop-shadow-color" value="0" id="drop-shadow-color" min="0" placeholder="hsla(0,0%,0%,0)"></p>
             <div class="about">Value must be a shadow like that of <a href="http://www.w3.org/TR/css3-background/#box-shadow"><code>box-shadow</code></a>.</div>
 		</fieldset>
@@ -59,7 +59,7 @@
         <p class="prop slide">
             <label for="hue-rotate" class="lbl-range">hue-rotate</label>
             <input type="range" name="hue-rotate" value="0" id="hue-rotate" min="0" max="359" step="1">
-        	<b class="value">0</b>
+        	<b class="value">0</b>deg
         	<span class="about">Value must be an angle, in degrees (deg) or radians (rad).</span>
 		</p>
 
