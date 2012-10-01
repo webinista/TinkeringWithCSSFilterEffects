@@ -90,21 +90,28 @@
         	<b class="value">0</b>
         	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
 		</p>
-
-
-
-
-
-
-
-
         <p>
-            <button type="button" id="button">Get CSS</button>
+            <button type="button" id="getcss">Get CSS</button>
             <button type="reset" id="reset">Reset</button>
-            <button type="button" id="about">About</button>
+            <button type="button" id="getabout">About</button>
 		</p>
     </form>
-<div id="overlay" class="hide"></div>
+<div id="overlay" class="hide">
+    <div id="showabout">
+        <a class="close">close</a>
+        <h2>About This Demo</h2>
+        <p>This demo is a partial look at <a href="https://dvcs.w3.org/hg/FXTF/raw-file/tip/filters/index.html">CSS Filter Effects</a>. To date, they are only available with the <code>-webkit-</code> prefix in <a href="http://caniuse.com/#search=css filter">some WebKit-based browsers</a>.
+    </div>
+
+    <div id="showcss">
+        <a class="close">close</a>
+        <h2>Show the CSS</h2>
+        <p>You can copy and paste this code into your CSS. Note that you do not have to define every function, just those whose values are other than the default.</p>
+        <pre id="scss"></pre>
+    </div>
+</div>
+
+
 <script type="text/javascript" src="filters.js"></script>
 </body>
 </html>

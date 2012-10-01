@@ -1,6 +1,5 @@
-
 /*
-So there isn't a jump when content causes
+Prevents a jump when content causes
 a vertical screen scroll
 */
 html{min-height: 101%;}
@@ -164,7 +163,43 @@ button:hover{background:#9f0; border-color:#9f0;color:#000}
     height:100%;
     z-index:9999;
 }
-
 .hide{
     display:none;
+}
+
+#overlay div{
+    background:#fff;
+    width:80%;
+    margin:2rem auto;
+    padding:2rem;
+    line-height:1.5;
+    position:relative;
+}
+
+#showcss pre{
+    background:#eee;
+    border:1px inset #eee;
+    margin:0;
+    width:auto;
+    padding:1rem;
+    overflow:scroll;
+}
+
+.close{
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    color: white;
+    padding: .25rem .55rem;
+    border: 1px solid #A00;
+    border-radius: 15px;
+    box-shadow: 2px 2px 0.5rem #666, inset 0px 1px .21rem #333;
+    cursor: pointer;
+    background-color: #E11D11;
+    background-image: -webkit-linear-gradient(top, #DF1B11, #8C1108);
+    background-image: -moz-linear-gradient(top, #DF1B11, #8C1108);
+    background-image: -o-linear-gradient(top, #DF1B11, #8C1108);
+    background-image: -ms-linear-gradient(top, #DF1B11, #8C1108);
+    background-image: linear-gradient(top, #DF1B11, #8C1108);
+    font-size:1rem
 }
