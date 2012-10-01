@@ -1,3 +1,9 @@
+
+/*
+So there isn't a jump when content causes
+a vertical screen scroll
+*/
+html{min-height: 101%;}
 body{
     background:#fff;
     font: 10px / 1 helvetica,arial,sans-serif;
@@ -5,6 +11,7 @@ body{
     margin:0;
     padding:0;
     position:relative;
+    overflow-y: scroll;
 }
 
 h1{
@@ -27,20 +34,27 @@ h2{
 p{
     font-size:1.1rem;
 }
-#filter{
+#filtered{
     width: 640px;
     float:left;
     padding-left:1rem;
     line-height:1.5;
-    margin-top:3rem;
+    margin-top:4rem;
 }
 
 img{display:block; margin:0 0 1rem;}
+.slide{
+    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
+       -moz-transition: min-height 500ms linear, max-height 500ms linear;
+         -o-transition: min-height 500ms linear, max-height 500ms linear;
+        -ms-transition: min-height 500ms linear, max-height 500ms linear;
+            transition: min-height 500ms linear, max-height 500ms linear;
+}
 
 form{
     position:absolute;
     right:0;
-    margin: 3rem;
+    margin: 4rem 3rem;
     width:30rem;
     z-index:9997;
 }
@@ -54,11 +68,6 @@ form{
     min-height:1rem;
     max-height:1rem;
     height:auto;
-    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
-       -moz-transition: min-height 500ms linear, max-height 500ms linear;
-         -o-transition: min-height 500ms linear, max-height 500ms linear;
-        -ms-transition: min-height 500ms linear, max-height 500ms linear;
-            transition: min-height 500ms linear, max-height 500ms linear;
 }
 
 .prop:hover{
@@ -68,11 +77,6 @@ form{
     max-height:3rem;
     height:auto;
     overflow:hidden;
-    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
-       -moz-transition: min-height 500ms linear, max-height 500ms linear;
-         -o-transition: min-height 500ms linear, max-height 500ms linear;
-        -ms-transition: min-height 500ms linear, max-height 500ms linear;
-            transition: min-height 500ms linear, max-height 500ms linear;
 }
 #drops{
     min-height:4rem;
@@ -90,11 +94,6 @@ form{
 #drops:hover{
     min-height:6rem;
     max-height:6rem;
-    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
-       -moz-transition: min-height 500ms linear, max-height 500ms linear;
-         -o-transition: min-height 500ms linear, max-height 500ms linear;
-        -ms-transition: min-height 500ms linear, max-height 500ms linear;
-            transition: min-height 500ms linear, max-height 500ms linear;
 }
 #drops p{margin:0;font-size:1rem}
 
@@ -104,7 +103,7 @@ form{
     padding-top:.7rem;
 }
 
-.prop:hover .about{
+.prop:hover .about, #drops:hover .about{
     display:block;
 }
 
@@ -131,7 +130,13 @@ input[type=number],input[type=color]{
     text-align:right;
     margin-left:.4rem;
 }
-
+input[type=number]:focus{
+    background: #cf0;
+    outline:none;
+}
+:focus{
+    outline-color: #cf0;
+}
 .value{
     display:inline-block;
     text-align:right;
