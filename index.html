@@ -18,67 +18,26 @@
     <form>
        <h2>Filter options</h2>
        <p class="prop slide">
-            <label for="grayscale" class="lbl-range">grayscale</label>
-            <input type="range" name="grayscale" value="0" id="grayscale" min="0" max="1" step=".01">
+            <label for="blur" class="lbl-range">blur</label>
+            <input type="range" name="blur" value="0" id="blur" min="0" max="100" step="1">
         	<b class="value">0</b>
-        	<span class="about hide">Value must be a number or percentage.</span>
-		</p>
-
-        <p class="prop slide">
-            <label for="sepia" class="lbl-range">sepia</label>
-            <input type="range" name="sepia" value="0" id="sepia" min="0" max="1" step=".01">
-        	<b class="value">0</b>
-        	<span class="about hide">Value must be a number or percentage.</span>
-		</p>
-
-        <p class="prop slide">
-            <label for="saturate" class="lbl-range">saturate</label>
-            <input type="range" name="saturate" value="1" id="saturate" min="0" max="1" step=".01">
-        	<b class="value">1</b>
-        	<span class="about hide">Value must be a number or percentage.</span>
-		</p>
-
-        <p class="prop slide">
-            <label for="hue-rotate" class="lbl-range">hue-rotate</label>
-            <input type="range" name="hue-rotate" value="0" id="hue-rotate" min="0" max="359" step="1">
-        	<b class="value">0</b>
-        	<span class="about hide">Value must be an angle, in degrees (deg) or radians (rad)</span>
-		</p>
-
-        <p class="prop slide">
-            <label for="invert" class="lbl-range">invert</label>
-            <input type="range" name="invert" value="0" id="invert" min="0" max="1" step=".01">
-        	<b class="value">0</b>
-        	<span class="about hide">Value must be a length such as px, em, or rem.</span>
-		</p>
-
-        <p class="prop slide">
-            <label for="opacity" class="lbl-range">opacity</label>
-            <input type="range" name="opacity" value="1" id="opacity" min="0" max="1" step=".01">
-        	<b class="value">1</b>
-        	<span class="about hide">Value must be a length.</span>
+        	<span class="about">Value must be a length such as px, em, or rem.</span>
 		</p>
 
         <p class="prop slide">
             <label for="brightness" class="lbl-range">brightness</label>
             <input type="range" name="brightness" value="0" id="brightness" min="0" max="1" step=".01">
         	<b class="value">0</b>
-        	<span class="about hide">Value must be a length.</span>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
 		</p>
 
         <p class="prop slide">
             <label for="contrast" class="lbl-range">contrast</label>
             <input type="range" name="contrast" value="1" id="contrast" min="0" max="1" step=".01">
         	<b class="value">1</b>
-        	<span class="about hide">Value must be a length.</span>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
 		</p>
 
-        <p class="prop slide">
-            <label for="blur" class="lbl-range">blur</label>
-            <input type="range" name="blur" value="0" id="blur" min="0" max="100" step="1">
-        	<b class="value">0</b>
-        	<span class="about hide">Value must be a length.</span>
-		</p>
 
         <div id="drops" class="slide">
         <fieldset>
@@ -87,13 +46,62 @@
             <input type="number" name="drop-shadow-y" value="0" id="drop-shadow-y" min="0" size="4">px
             <input type="number" name="drop-shadow-offset" value="0" id="drop-shadow-offset" min="0" size="4">px
             <input type="color" name="drop-shadow-color" value="0" id="drop-shadow-color" min="0" placeholder="hsla(0,0%,0%,0)"></p>
-            <div class="about hide">Value must be a shadow like that of <a href="http://www.w3.org/TR/css3-background/#box-shadow"><code>box-shadow</code></a>.</div>
+            <div class="about">Value must be a shadow like that of <a href="http://www.w3.org/TR/css3-background/#box-shadow"><code>box-shadow</code></a>.</div>
 		</fieldset>
         </div>
+
+       <p class="prop slide">
+            <label for="grayscale" class="lbl-range">grayscale</label>
+            <input type="range" name="grayscale" value="0" id="grayscale" min="0" max="1" step=".01">
+        	<b class="value">0</b>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+		</p>
+        <p class="prop slide">
+            <label for="hue-rotate" class="lbl-range">hue-rotate</label>
+            <input type="range" name="hue-rotate" value="0" id="hue-rotate" min="0" max="359" step="1">
+        	<b class="value">0</b>
+        	<span class="about">Value must be an angle, in degrees (deg) or radians (rad).</span>
+		</p>
+
+        <p class="prop slide">
+            <label for="invert" class="lbl-range">invert</label>
+            <input type="range" name="invert" value="0" id="invert" min="0" max="1" step=".01">
+        	<b class="value">0</b>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+		</p>
+
+		<p class="prop slide">
+            <label for="opacity" class="lbl-range">opacity</label>
+            <input type="range" name="opacity" value="1" id="opacity" min="0" max="1" step=".01">
+        	<b class="value">1</b>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+		</p>
+
+        <p class="prop slide">
+            <label for="saturate" class="lbl-range">saturate</label>
+            <input type="range" name="saturate" value="1" id="saturate" min="0" max="1" step=".01">
+        	<b class="value">1</b>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+		</p>
+
+        <p class="prop slide">
+            <label for="sepia" class="lbl-range">sepia</label>
+            <input type="range" name="sepia" value="0" id="sepia" min="0" max="1" step=".01">
+        	<b class="value">0</b>
+        	<span class="about">Value must be a number between 0 and 1 or a percentage.</span>
+		</p>
+
+
+
+
+
+
+
 
         <p>
             <button type="button" id="button">Get CSS</button>
             <button type="reset" id="reset">Reset</button>
+            <button type="button" id="about">About</button>
 		</p>
     </form>
 <div id="overlay" class="hide"></div>
