@@ -147,7 +147,7 @@ input:focus{
 .value{
     display:inline-block;
     text-align:right;
-    font-family:monospace;
+    font-weight: normal;
 }
 button{
     margin:0 1rem 0 0;
