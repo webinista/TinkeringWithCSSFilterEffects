@@ -34,11 +34,10 @@ window.addEventListener('load',function(e){
     showabout = overlay.removeChild( document.getElementById('showabout') ),
     showcss   = overlay.removeChild( document.getElementById('showcss') );
 
-    obj.style.webkitFilter = "blur(0px) brightness(0) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0)",
-    startstyle = obj.style.webkitFilter;
+    startstyle = getComputedStyle(obj).getPropertyValue('-webkit-filter');
 
     update = function(e){
-        var f = obj.style.webkitFilter, newfilt,
+        var f = startstyle, newfilt,
             val = e.target.nextElementSibling,
             dropshad;
 
