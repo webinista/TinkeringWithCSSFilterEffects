@@ -47,9 +47,11 @@ p{
     padding-left:1rem;
     line-height:1.5;
     margin-top:4rem;
+    -webkit-transition: -webkit-filter 250ms linear;
 }
 
 img{display:block; margin:0 0 1rem;}
+
 .slide{
     -webkit-transition: min-height 500ms linear, max-height 500ms linear;
        -moz-transition: min-height 500ms linear, max-height 500ms linear;
