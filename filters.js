@@ -9,19 +9,6 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-/*
-Mimics Array.prototype.map().
-Need to use arguments[0] instead of this
-inside of func.
-*/
-NodeList.prototype.mappish = function(func){
-    var nodelistarr = [], len = this.length, i;
-    for(i=0; i<len; i++){
-        nodelistarr[i] = this[i];
-    }
-    nodelistarr.map(func);
-}
-
 window.addEventListener('load',function(e){
    var form,
     resethandler,
@@ -113,10 +100,14 @@ window.addEventListener('load',function(e){
     form = document.getElementsByTagName('form')[0];
     resethandler = function(){
         var values = document.getElementsByClassName('value');
-        values.mappish( function(){
-            var it = arguments[0];
-            it.replaceChild( document.createTextNode( it.previousElementSibling.getAttribute('value') ), it.firstChild );
+
+        /* Calling map() once per element in the values NodeList. */
+        Array.prototype.map.call( values, function(v){
+            if( v.previousElementSibling.getAttribute('value') != v.firstChild ){
+                v.replaceChild( document.createTextNode( v.previousElementSibling.getAttribute('value') ), v.firstChild );
+            }
         });
+
         obj.style.webkitFilter = startstyle;
     }
 
