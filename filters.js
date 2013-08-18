@@ -51,7 +51,7 @@ window.addEventListener('load',function(e){
 	},
 	startstyle = filterRule(cssObj[0]),
     update = function(e){
-        var f = startstyle.rule, 
+        var f = cssObj[0].cssRules[ startstyle.index ].cssText, 
         	newfilt,
             val = e.target.nextElementSibling,
             dropshad,
@@ -103,9 +103,11 @@ window.addEventListener('load',function(e){
                 newfilt = f.replace(/(drop-shadow\()rgb\([0-9]+, [0-9]+, [0-9]+\) [0-9]+px [0-9]+px [0-9]+px\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
                 break;
         }
-        cssObj[0].deleteRule( ind );
+       
+       	cssObj[0].deleteRule( ind );
         cssObj[0].insertRule( newfilt, ind );
-        
+      
+      	console.log( newfilt );  
     },
     
     buttonhandler = function(e){
