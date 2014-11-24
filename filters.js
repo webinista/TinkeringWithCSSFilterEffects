@@ -35,10 +35,6 @@ window.addEventListener('load',function(e){
     showcss   = overlay.removeChild( document.getElementById('showcss') ), 
 
     filterRule = function(){
-         console.log('----------');
-         console.log(cssObj);
-         console.log('----------');
-		
         var rules = cssObj.cssRules,
 			index = rules.length,
 			i = 0, 
@@ -54,15 +50,14 @@ window.addEventListener('load',function(e){
 			i++;
 		}
 	},
-	startstyle = filterRule(cssObj[0])
-    /* update = function(e){
-        var f = cssObj[0].cssRules[ startstyle.index ].cssText, 
+	startstyle = filterRule(cssObj[0]);
+    
+    update = function(e){
+        var f = cssObj.cssRules[ startstyle.index ].cssText, 
         	newfilt,
             val = e.target.nextElementSibling,
             dropshad,
             ind = startstyle.index;
-
-            console.log(f)
 
         switch( e.target.id ){
             case 'blur':
@@ -114,13 +109,13 @@ window.addEventListener('load',function(e){
                 break;
         }
        
-       cssObj[0].deleteRule( ind );
-       cssObj[0].insertRule( newfilt, ind );
+       cssObj.deleteRule( ind );
+       cssObj.insertRule( newfilt, ind );
        console.log( f );
        console.log( newfilt );
-    },
+    }
     
-    buttonhandler = function(e){
+   /*  buttonhandler = function(e){
         if( Object.prototype.toString.call( e.target ) == '[object HTMLButtonElement]' && e.target.type !== 'reset'){
             overlay.classList.remove('hide');
             
@@ -158,10 +153,10 @@ window.addEventListener('load',function(e){
         cssObj[0].insertRule( startstyle.rule, startstyle.index );
         
     }
-    
+    */
 
     form.addEventListener('input',update,false);
-    form.addEventListener('reset',resethandler,false);
+    /* form.addEventListener('reset',resethandler,false);
    
     form.addEventListener('click',buttonhandler,false);
     
