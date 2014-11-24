@@ -125,19 +125,17 @@ window.addEventListener('load',function(e){
        if( newfilt ) {
             cssObj.deleteRule( ind );
             cssObj.insertRule( newfilt, ind );
-       }   
+       }
     }
     
     buttonhandler = function(e){
-        e.preventDefault();
-
         if( Object.prototype.toString.call( e.target ) == '[object HTMLButtonElement]' && e.target.type !== 'reset'){
             overlay.classList.remove('hide');
             
-            var index = filterRule( cssObj[0] ).index;
+            var index = filterRule( cssObj ).index;
             
             if( e.target.id == 'getcss' ){
-                var css = document.createTextNode( cssObj[0].cssRules[ index ].cssText );
+                var css = document.createTextNode( cssObj.cssRules[ index ].cssText );
                 var c = document.createElement('code');
                 c.appendChild(css);
 
@@ -164,15 +162,18 @@ window.addEventListener('load',function(e){
             }
         });
 
-		cssObj.deleteRule( startstyle.index );
-        cssObj.insertRule( startstyle.rule, startstyle.index );
+		cssObj[0].deleteRule( startstyle.index );
+        cssObj[0].insertRule( startstyle.rule, startstyle.index );
         
     }
- 
+    
+
     form.addEventListener('input',update,false);
     form.addEventListener('reset',resethandler,false);
    
-    form.addEventListener('submit', buttonhandler,false);
+    form.addEventListener('click',buttonhandler,false);
+    
+    form.addEventListener('submit', function(e){ e.preventDefault() },false);
 
     overlay.addEventListener('click',function(e){
         if( e.target.classList.contains('close') || e.target.id == 'overlay'){
