@@ -162,8 +162,8 @@ window.addEventListener('load',function(e){
             }
         });
 
-		cssObj[0].deleteRule( startstyle.index );
-        cssObj[0].insertRule( startstyle.rule, startstyle.index );
+		cssObj.deleteRule( startstyle.index );
+        cssObj.insertRule( startstyle.rule, startstyle.index );
         
     }
     
