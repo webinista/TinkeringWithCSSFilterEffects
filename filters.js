@@ -99,15 +99,14 @@ window.addEventListener('load',function(e){
              case 'drop-shadow-y':
              case 'drop-shadow-blur':
              case 'drop-shadow-color':
-                dropshad = document.querySelectorAll('input[name|=drop-shadow]')
-                newfilt = f.replace(/(drop-shadow\()rgb\([0-9]+, [0-9]+, [0-9]+\) [0-9]+px [0-9]+px [0-9]+px\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                dropshad = document.querySelectorAll('input[name|=drop-shadow]');
+                newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px \#[0-9a-f]{3}|[0-9a-f]{6}/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
                 break;
         }
        
-       	cssObj[0].deleteRule( ind );
-        cssObj[0].insertRule( newfilt, ind );
-      
-      	console.log( newfilt );  
+       cssObj[0].deleteRule( ind );
+       cssObj[0].insertRule( newfilt, ind );
+ 
     },
     
     buttonhandler = function(e){
