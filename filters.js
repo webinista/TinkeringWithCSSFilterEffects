@@ -57,7 +57,10 @@ window.addEventListener('load',function(e){
         	newfilt,
             val = e.target.nextElementSibling,
             dropshad,
-            ind = startstyle.index;
+            ind = startstyle.index,
+            rgb1 = /(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px rgb\(0, 0, 0\)\)/,
+            rgb2 = /(drop-shadow\()rgb\(0, 0, 0\) [0-9]+px [0-9]+px [0-9]+px\)/,
+            hex = /(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px #[0-9a-f]{6}\)/;
 
         switch( e.target.id ){
             case 'blur':
@@ -101,18 +104,28 @@ window.addEventListener('load',function(e){
              case 'drop-shadow-blur':
              case 'drop-shadow-color':
                 dropshad = document.querySelectorAll('input[name|=drop-shadow]');
-                if( f.indexOf('rgb') ){
-                    newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px rgb\(0, 0, 0\)\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
-                } else {
-                    newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px #[0-9a-f]{6}\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
-                }
+                
+                newfilt = function(rule){
+                    var nf;
+
+                    if (rgb1.test(rule)) {
+                        nf = f.replace(rgb1,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                    }
+                    if (rgb2.test(rule)) {
+                        nf = f.replace(rgb2,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                    }
+                    if (hex.test(rule)) {
+                        nf = f.replace(hex,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                    }
+                    return nf;
+                }(f);
                 break;
         }
-       
+    
        cssObj.deleteRule( ind );
        cssObj.insertRule( newfilt, ind );
-       console.log( f );
-       console.log( newfilt );
+      
+      
     }
     
    /*  buttonhandler = function(e){
