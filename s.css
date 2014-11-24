@@ -48,17 +48,14 @@ p{
     padding-left:1rem;
     line-height:1.5;
     margin-top:4rem;
-    -webkit-transition: -webkit-filter 250ms linear;
+    transition: -webkit-filter 250ms linear;
+    transition: filter 250ms linear;
 }
 
 img{display:block; margin:0 0 1rem;}
 
 .slide{
-    -webkit-transition: min-height 500ms linear, max-height 500ms linear;
-       -moz-transition: min-height 500ms linear, max-height 500ms linear;
-         -o-transition: min-height 500ms linear, max-height 500ms linear;
-        -ms-transition: min-height 500ms linear, max-height 500ms linear;
-            transition: min-height 500ms linear, max-height 500ms linear;
+    transition: min-height 500ms linear, max-height 500ms linear;
 }
 
 form{
@@ -207,19 +204,12 @@ button:hover{background:#9f0; border-color:#9f0;color:#000}
     box-shadow: 2px 2px 0.5rem #666, inset 0px 1px .21rem #333;
     cursor: pointer;
     background-color: #E11D11;
-    background-image: -webkit-linear-gradient(top, #DF1B11, #8C1108);
-    background-image: -moz-linear-gradient(top, #DF1B11, #8C1108);
-    background-image: -o-linear-gradient(top, #DF1B11, #8C1108);
-    background-image: -ms-linear-gradient(top, #DF1B11, #8C1108);
     background-image: linear-gradient(top, #DF1B11, #8C1108);
     font-size:1rem
 }
 
 #filtered{
 	-webkit-filter: blur(0px) brightness(1) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0);
-	   -moz-filter: blur(0px) brightness(1) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0);
-	    -ms-filter: blur(0px) brightness(1) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0);
-	     -o-filter: blur(0px) brightness(1) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0);
 	 	    filter: blur(0px) brightness(1) contrast(100%) drop-shadow(0px 0px 0px #fff) grayscale(0) hue-rotate(0deg) invert(0) opacity(1) saturate(1) sepia(0);
 }
 
