@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 window.addEventListener('load',function(e){
    var form = document.forms[0],
-    cssObj = document.styleSheets,
+    cssObj = document.styleSheets[0],
     resethandler,
     obj = document.getElementById('filtered'),
     startstyle,
@@ -33,8 +33,13 @@ window.addEventListener('load',function(e){
     /* Remove them from the DOM and add them back when needed */
     showabout = overlay.removeChild( document.getElementById('showabout') ),
     showcss   = overlay.removeChild( document.getElementById('showcss') ), 
-    filterRule = function( cssObj ){
-		var rules = cssObj.cssRules,
+
+    filterRule = function(){
+         console.log('----------');
+         console.log(cssObj);
+         console.log('----------');
+		
+        var rules = cssObj.cssRules,
 			index = rules.length,
 			i = 0, 
 			result = {};
@@ -49,14 +54,15 @@ window.addEventListener('load',function(e){
 			i++;
 		}
 	},
-	startstyle = filterRule(cssObj[0]),
-    update = function(e){
+	startstyle = filterRule(cssObj[0])
+    /* update = function(e){
         var f = cssObj[0].cssRules[ startstyle.index ].cssText, 
         	newfilt,
             val = e.target.nextElementSibling,
             dropshad,
             ind = startstyle.index;
 
+            console.log(f)
 
         switch( e.target.id ){
             case 'blur':
@@ -100,13 +106,18 @@ window.addEventListener('load',function(e){
              case 'drop-shadow-blur':
              case 'drop-shadow-color':
                 dropshad = document.querySelectorAll('input[name|=drop-shadow]');
-                newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px \#[0-9a-f]{3}|[0-9a-f]{6}/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                if( f.indexOf('rgb') ){
+                    newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px rgb\(0, 0, 0\)\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                } else {
+                    newfilt = f.replace(/(drop-shadow\()[0-9]+px [0-9]+px [0-9]+px #[0-9a-f]{6}\)/,"$1"+dropshad[0].value+'px '+dropshad[1].value+'px '+dropshad[2].value+'px '+dropshad[3].value+')');
+                }
                 break;
         }
        
        cssObj[0].deleteRule( ind );
        cssObj[0].insertRule( newfilt, ind );
- 
+       console.log( f );
+       console.log( newfilt );
     },
     
     buttonhandler = function(e){
@@ -148,6 +159,7 @@ window.addEventListener('load',function(e){
         
     }
     
+
     form.addEventListener('input',update,false);
     form.addEventListener('reset',resethandler,false);
    
@@ -159,5 +171,5 @@ window.addEventListener('load',function(e){
         if( e.target.classList.contains('close') || e.target.id == 'overlay'){
             this.classList.add('hide');
         }
-    },true);
+    },true); */
 },false);
