@@ -122,13 +122,15 @@ window.addEventListener('load',function(e){
                 break;
         }
     
-       cssObj.deleteRule( ind );
-       cssObj.insertRule( newfilt, ind );
-      
-      
+       if( newfilt ) {
+            cssObj.deleteRule( ind );
+            cssObj.insertRule( newfilt, ind );
+       }   
     }
     
-   /*  buttonhandler = function(e){
+    buttonhandler = function(e){
+        e.preventDefault();
+
         if( Object.prototype.toString.call( e.target ) == '[object HTMLButtonElement]' && e.target.type !== 'reset'){
             overlay.classList.remove('hide');
             
@@ -162,22 +164,19 @@ window.addEventListener('load',function(e){
             }
         });
 
-		cssObj[0].deleteRule( startstyle.index );
-        cssObj[0].insertRule( startstyle.rule, startstyle.index );
+		cssObj.deleteRule( startstyle.index );
+        cssObj.insertRule( startstyle.rule, startstyle.index );
         
     }
-    */
-
+ 
     form.addEventListener('input',update,false);
-    /* form.addEventListener('reset',resethandler,false);
+    form.addEventListener('reset',resethandler,false);
    
-    form.addEventListener('click',buttonhandler,false);
-    
-    form.addEventListener('submit', function(e){ e.preventDefault() },false);
+    form.addEventListener('submit', buttonhandler,false);
 
     overlay.addEventListener('click',function(e){
         if( e.target.classList.contains('close') || e.target.id == 'overlay'){
             this.classList.add('hide');
         }
-    },true); */
+    },true);
 },false);
