@@ -32,7 +32,7 @@ window.addEventListener('load',function(e){
     overlay   = document.getElementById('overlay'),
     /* Remove them from the DOM and add them back when needed */
     showabout = overlay.removeChild( document.getElementById('showabout') ),
-    showcss   = overlay.removeChild( document.getElementById('showcss') ), 
+    showcss   = overlay.removeChild( document.getElementById('showcss') ),
 
     filterRule = function(){
         var rules = cssObj.cssRules,
@@ -50,7 +50,8 @@ window.addEventListener('load',function(e){
 			i++;
 		}
 	},
-	startstyle = filterRule(cssObj[0]);
+	
+    startstyle = filterRule(cssObj[0]),
     
     update = function(e){
         var f = cssObj.cssRules[ startstyle.index ].cssText, 
@@ -132,7 +133,7 @@ window.addEventListener('load',function(e){
         if( Object.prototype.toString.call( e.target ) == '[object HTMLButtonElement]' && e.target.type !== 'reset'){
             overlay.classList.remove('hide');
             
-            var index = filterRule( cssObj ).index;
+            var index = filterRule( cssObj[0] ).index;
             
             if( e.target.id == 'getcss' ){
                 var css = document.createTextNode( cssObj.cssRules[ index ].cssText );
@@ -167,7 +168,6 @@ window.addEventListener('load',function(e){
         
     }
     
-
     form.addEventListener('input',update,false);
     form.addEventListener('reset',resethandler,false);
    
