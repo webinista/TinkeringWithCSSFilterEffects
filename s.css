@@ -90,8 +90,8 @@ form{
     overflow:hidden;
 }
 #drops{
-    min-height:4rem;
-    max-height:4rem;
+    min-height:3.5rem;
+    max-height:3.5rem;
     background:rgba(240,240,240,.3);
     border:1px solid #eee;
     padding:.5rem 0;
@@ -211,6 +211,10 @@ button:hover{background:#9f0; border-color:#9f0;color:#000}
     font-size:1rem;
 }
 
+code {
+   white-space:nowrap;
+   word-break: keep-all;
+}
 
 
 
