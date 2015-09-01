@@ -27,7 +27,7 @@ window.addEventListener('load',function(e){
     resethandler,
     obj = document.getElementById('filtered'),
     startstyle,
-    update, 
+    update,
     buttonhandler,
     overlay   = document.getElementById('overlay'),
     /* Remove them from the DOM and add them back when needed */
@@ -37,24 +37,24 @@ window.addEventListener('load',function(e){
     filterRule = function(){
         var rules = cssObj.cssRules,
 			index = rules.length,
-			i = 0, 
+			i = 0,
 			result = {};
-			
+
 		while( i < index ){
 			if( /filter:/.test( rules[i].cssText ) ){
 				result.rule = rules[i].cssText;
 				result.index = i;
 				return result;
-				break; 
+				break;
 			}
 			i++;
 		}
 	},
-	
+
     startstyle = filterRule(cssObj[0]),
-    
+
     update = function(e){
-        var f = cssObj.cssRules[ startstyle.index ].cssText, 
+        var f = cssObj.cssRules[ startstyle.index ].cssText,
         	newfilt,
             val = e.target.nextElementSibling,
             dropshad,
@@ -70,7 +70,6 @@ window.addEventListener('load',function(e){
                 break;
              case 'brightness':
                 newfilt = f.replace(/brightness\([\.0-9]+/,'brightness('+(e.target.value*1) );
-                val.replaceChild(document.createTextNode(e.target.value),val.firstChild);
                 break;
              case 'contrast':
                 newfilt = f.replace(/contrast\([0-9]+/,'contrast('+(e.target.value*1) );
@@ -105,7 +104,7 @@ window.addEventListener('load',function(e){
              case 'drop-shadow-blur':
              case 'drop-shadow-color':
                 dropshad = document.querySelectorAll('input[name|=drop-shadow]');
-                
+
                 newfilt = function(rule){
                     var nf;
 
@@ -122,19 +121,19 @@ window.addEventListener('load',function(e){
                 }(f);
                 break;
         }
-    
+
        if( newfilt ) {
             cssObj.deleteRule( ind );
             cssObj.insertRule( newfilt, ind );
        }
     }
-    
+
     buttonhandler = function(e){
         if( Object.prototype.toString.call( e.target ) == '[object HTMLButtonElement]' && e.target.type !== 'reset'){
             overlay.classList.remove('hide');
-            
+
             var index = filterRule( cssObj[0] ).index;
-            
+
             if( e.target.id == 'getcss' ){
                 var css = document.createTextNode( cssObj.cssRules[ index ].cssText );
                 var c = document.createElement('code');
@@ -165,14 +164,14 @@ window.addEventListener('load',function(e){
 
 		cssObj.deleteRule( startstyle.index );
         cssObj.insertRule( startstyle.rule, startstyle.index );
-        
+
     }
-    
+
     form.addEventListener('input',update,false);
     form.addEventListener('reset',resethandler,false);
-   
+
     form.addEventListener('click',buttonhandler,false);
-    
+
     form.addEventListener('submit', function(e){ e.preventDefault() },false);
 
     overlay.addEventListener('click',function(e){
